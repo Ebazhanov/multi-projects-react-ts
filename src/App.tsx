@@ -5,6 +5,7 @@ import Modal from "./pages/Modal";
 import PageNotFound from "./pages/PageNotFound";
 import NavigationBar from "./components/NavigationBar";
 import { FC } from "react";
+import "./index.scss";
 
 const App: FC = () => {
   return (

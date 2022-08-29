@@ -4,9 +4,9 @@ import "./Modal.scss";
 
 function Modal() {
   return (
-    <div>
-      <button className="open-modal-btn">✨ Открыть окно</button>
-      <div className="overlay">
+    <div className="modal-content">
+      <button className="open-modal-btn">✨ Open window</button>
+      {/*<div className="overlay">
         <div className="modal">
           <svg height="200" viewBox="0 0 200 200" width="200">
             <title />
@@ -17,7 +17,7 @@ function Modal() {
             src="https://media.giphy.com/media/BexheRKsUkJgc/giphy.gif"
           />
         </div>
-      </div>
+      </div>*/}
     </div>
   );
 }
