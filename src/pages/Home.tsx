@@ -1,9 +1,9 @@
 import React, { FC } from "react";
-import "./../index.scss";
+import "./Home.scss";
 
 const Home: FC = () => {
   return (
-    <main>
+    <main className="home-main">
       <h3>Home page</h3>
     </main>
   );
