@@ -1,13 +1,11 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import "./../index.scss";
 
 const Home: FC = () => {
   return (
-    <>
-      <main>
-        <h3>Home page</h3>
-      </main>
-    </>
+    <main>
+      <h3>Home page</h3>
+    </main>
   );
 };
 

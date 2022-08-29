@@ -13,7 +13,7 @@ function NavigationBar() {
             <Link to="/Counter">Counter page</Link>
           </li>
           <li>
-            <Link to="/Next">Next page</Link>
+            <Link to="/Modal">Modal page</Link>
           </li>
         </ul>
       </nav>
