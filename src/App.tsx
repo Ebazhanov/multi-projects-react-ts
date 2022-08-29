@@ -1,13 +1,25 @@
-import React from "react";
-import "./index.scss";
-import Counter from "./Counter";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Counter from "./pages/Counter";
+import Home from "./pages/Home";
+import Next from "./pages/Next";
+import PageNotFound from "./pages/PageNotFound";
+import NavigationBar from "./components/NavigationBar";
+import { FC } from "react";
 
-function App() {
+const App: FC = () => {
   return (
     <div>
-      <Counter />
+      <BrowserRouter>
+        <NavigationBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/counter" element={<Counter />} />
+          <Route path="/next" element={<Next />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;
