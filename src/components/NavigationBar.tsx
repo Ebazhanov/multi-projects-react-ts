@@ -10,10 +10,10 @@ function NavigationBar() {
             <Link to="/">Home page</Link>
           </li>
           <li>
-            <Link to="/Counter">Counter page</Link>
+            <Link to="/Counter">Counter</Link>
           </li>
           <li>
-            <Link to="/Modal">Modal page</Link>
+            <Link to="/Modal">Modal animation</Link>
           </li>
         </ul>
       </nav>
