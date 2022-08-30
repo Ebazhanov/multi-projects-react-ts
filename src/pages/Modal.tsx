@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import "./../index.scss";
+import React, { ReactNode, useState } from "react";
 import "./Modal.scss";
 
 interface Props {
   open: boolean;
   setOpen: (isOpen: boolean) => void;
+  children: ReactNode;
 }
 
-const ModalDialog = ({ open, setOpen }: Props) => {
+const ModalDialog = ({ open, setOpen, children }: Props) => {
   return (
     <div className={`overlay animated ${open ? "show" : ""}`}>
       <div className="modal">
@@ -20,10 +20,7 @@ const ModalDialog = ({ open, setOpen }: Props) => {
           <title />
           <path d="M114,100l49-49a9.9,9.9,0,0,0-14-14L100,86,51,37A9.9,9.9,0,0,0,37,51l49,49L37,149a9.9,9.9,0,0,0,14,14l49-49,49,49a9.9,9.9,0,0,0,14-14Z" />
         </svg>
-        <img
-          alt="gif"
-          src="https://media.giphy.com/media/BexheRKsUkJgc/giphy.gif"
-        />
+        {children}
       </div>
     </div>
   );
@@ -37,7 +34,13 @@ function Modal() {
       <button onClick={() => setOpen(true)} className="open-modal-btn">
         ✨ Open window
       </button>
-      <ModalDialog open={open} setOpen={setOpen} />
+      <ModalDialog open={open} setOpen={setOpen}>
+        <img
+          alt="gif"
+          src="https://media.giphy.com/media/BexheRKsUkJgc/giphy.gif"
+        />
+        <h3 style={{ textAlign: "center" }}>Modal window</h3>
+      </ModalDialog>
     </div>
   );
 }

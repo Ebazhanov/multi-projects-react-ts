@@ -16,6 +16,7 @@ const App: FC = () => {
           <Route path="/" element={<Home />} />
           <Route path="/counter" element={<Counter />} />
           <Route path="/modal" element={<Modal />} />
+          <Route path="/quiz" element={<Modal />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>

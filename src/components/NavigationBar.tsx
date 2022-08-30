@@ -10,10 +10,13 @@ function NavigationBar() {
             <Link to="/">Home page</Link>
           </li>
           <li>
-            <Link to="/Counter">Counter</Link>
+            <Link to="/counter">Counter</Link>
           </li>
           <li>
-            <Link to="/Modal">Modal animation</Link>
+            <Link to="/modal">Modal</Link>
+          </li>
+          <li>
+            <Link to="/quiz">Quiz</Link>
           </li>
         </ul>
       </nav>
