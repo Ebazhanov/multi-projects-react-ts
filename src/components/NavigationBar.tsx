@@ -18,6 +18,9 @@ function NavigationBar() {
           <li>
             <Link to="/quiz">Quiz</Link>
           </li>
+          <li>
+            <Link to="/users">Users</Link>
+          </li>
         </ul>
       </nav>
     </div>

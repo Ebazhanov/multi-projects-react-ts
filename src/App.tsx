@@ -7,6 +7,7 @@ import NavigationBar from "./components/NavigationBar";
 import { FC } from "react";
 import "./index.scss";
 import Quiz from "./pages/Quiz";
+import { UsersSearch } from "./pages/Users";
 
 const App: FC = () => {
   return (
@@ -18,6 +19,7 @@ const App: FC = () => {
           <Route path="/counter" element={<Counter />} />
           <Route path="/modal" element={<Modal />} />
           <Route path="/quiz" element={<Quiz />} />
+          <Route path="/users" element={<UsersSearch />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
