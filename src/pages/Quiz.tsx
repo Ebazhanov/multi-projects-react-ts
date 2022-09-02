@@ -8,34 +8,42 @@ const questions = [
     correct: 0,
   },
   {
-    title: "Компонент - это ... ",
+    title: "What is component ...",
     variants: [
-      "приложение",
-      "часть приложения или страницы",
-      "то, что я не знаю что такое",
+      "App",
+      "part of an application or page",
+      "I don't know what it is",
     ],
     correct: 1,
   },
   {
-    title: "Что такое JSX?",
+    title: "What is JSX?",
     variants: [
-      "Это простой HTML",
-      "Это функция",
-      "Это тот же HTML, но с возможностью выполнять JS-код",
+      "This is plain HTML",
+      "This is a function",
+      "This is the same HTML, but with the ability to execute JS code",
     ],
     correct: 2,
   },
 ];
 
-function Result() {
+interface ResultProps {
+  correct: number;
+}
+
+function Result({ correct }: ResultProps) {
   return (
     <div className="result">
       <img
         src="https://cdn-icons-png.flaticon.com/512/2278/2278992.png"
         alt="png"
       />
-      <h2>You passed 3 answers from 10</h2>
-      <button>Try again</button>
+      <h2>
+        You passed {correct} answers from {questions.length}
+      </h2>
+      <a href="/quiz">
+        <button>Try again</button>
+      </a>
     </div>
   );
 }
@@ -51,10 +59,12 @@ interface Props {
 }
 
 function QuizCard({ step, question, onClickVariant }: Props) {
+  const percentage = Math.round(step / questions.length) * 100;
+
   return (
     <>
       <div className="progress">
-        <div style={{ width: "30%" }} className="progress__inner"></div>
+        <div style={{ width: percentage }} className="progress__inner"></div>
       </div>
       <h1>{question.title}</h1>
       <ul>
@@ -70,21 +80,28 @@ function QuizCard({ step, question, onClickVariant }: Props) {
 
 function Quiz() {
   const [step, setStep] = useState(0);
+  const [correct, setCorrect] = useState(0);
   const question = questions[step];
 
-  const onClickVariant = ({ index }: any) => {
-    console.log(step, index);
+  const onClickVariant = (index: any) => {
     setStep(step + 1);
+
+    if (index === question.correct) {
+      setCorrect(correct + 1);
+    }
   };
 
   return (
     <div className="Quiz">
-      <QuizCard
-        step={step}
-        question={question}
-        onClickVariant={onClickVariant}
-      />
-      {/*      <Result />*/}
+      {step !== questions.length ? (
+        <QuizCard
+          step={step}
+          question={question}
+          onClickVariant={onClickVariant}
+        />
+      ) : (
+        <Result correct={correct} />
+      )}
     </div>
   );
 }
