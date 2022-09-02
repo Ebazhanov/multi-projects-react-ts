@@ -3,8 +3,8 @@ import { useState } from "react";
 
 const questions = [
   {
-    title: "React - это ... ?",
-    variants: ["библиотека", "фреймворк", "приложение"],
+    title: "React - it is ... ?",
+    variants: ["library", "framework", "app"],
     correct: 0,
   },
   {
@@ -40,17 +40,29 @@ function Result() {
   );
 }
 
-function Game() {
+interface Props {
+  question: {
+    title: string;
+    variants: string[];
+    correct: number;
+  };
+  onClickVariant: (index: any) => void;
+  step: number;
+}
+
+function QuizCard({ step, question, onClickVariant }: Props) {
   return (
     <>
       <div className="progress">
-        <div style={{ width: "50%" }} className="progress__inner"></div>
+        <div style={{ width: "30%" }} className="progress__inner"></div>
       </div>
-      <h1>What is useState?</h1>
+      <h1>{question.title}</h1>
       <ul>
-        <li>It is a function to store component data</li>
-        <li>It is a global state</li>
-        <li>Others</li>
+        {question.variants.map((text, index) => (
+          <li key={index} onClick={() => onClickVariant(index)}>
+            {text}
+          </li>
+        ))}
       </ul>
     </>
   );
@@ -60,9 +72,18 @@ function Quiz() {
   const [step, setStep] = useState(0);
   const question = questions[step];
 
+  const onClickVariant = ({ index }: any) => {
+    console.log(step, index);
+    setStep(step + 1);
+  };
+
   return (
     <div className="Quiz">
-      <Game />
+      <QuizCard
+        step={step}
+        question={question}
+        onClickVariant={onClickVariant}
+      />
       {/*      <Result />*/}
     </div>
   );
