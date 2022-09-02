@@ -39,7 +39,7 @@ function Modal() {
           alt="gif"
           src="https://media.giphy.com/media/BexheRKsUkJgc/giphy.gif"
         />
-        <h3 style={{ textAlign: "center" }}>Modal window</h3>
+        <h3 style={{ textAlign: "center" }}>...</h3>
       </ModalDialog>
     </div>
   );

@@ -59,7 +59,7 @@ interface Props {
 }
 
 function QuizCard({ step, question, onClickVariant }: Props) {
-  const percentage = Math.round(step / questions.length) * 100;
+  const percentage = Math.round((step / questions.length) * 100) + 100;
 
   return (
     <>
