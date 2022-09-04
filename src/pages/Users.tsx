@@ -75,10 +75,10 @@ const Users = ({
         <ul className="users-list">
           {items
             .filter((obj: any) => {
-              const fullName = obj.first_name + obj.last_name;
+              const fullName = (obj.first_name + obj.last_name).toLowerCase();
               return (
-                fullName.toString().includes(searchValue) ||
-                obj.email.toString().includes(searchValue)
+                fullName.includes(searchValue.toLowerCase()) ||
+                obj.email.toLowerCase().includes(searchValue.toLowerCase())
               );
             })
             .map((obj: any) => (
