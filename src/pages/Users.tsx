@@ -76,17 +76,10 @@ const Users = ({
           {items
             .filter((obj: any) => {
               const fullName = obj.first_name + obj.last_name;
-
-              if (obj.first_name.indexOf(searchValue)) {
-                console.log(obj.first_name);
-                return true;
-              } else {
-                return false;
-              }
-              /*return (
-                fullName.toString().include(searchValue) ||
-                obj.email.toString().include(searchValue)
-              );*/
+              return (
+                fullName.toString().includes(searchValue) ||
+                obj.email.toString().includes(searchValue)
+              );
             })
             .map((obj: any) => (
               <User key={obj.id} {...obj} />
