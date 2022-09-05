@@ -5,6 +5,7 @@ import "./Users.scss";
 
 export const UsersSearch = () => {
   const [users, setUsers] = useState([]);
+  const [invites, setInvites] = useState([1, 3]);
   const [isLoading, setLoading] = useState(true);
   const [searchValue, setSearchValue] = useState("");
 
@@ -19,9 +20,17 @@ export const UsersSearch = () => {
       .finally(() => setLoading(false));
   }, []);
 
-  //const onChangeSearchValue = (event: React.ChangeEvent<HTMLInputElement>) => {
-  const onChangeSearchValue = (event: any) => {
+  const onChangeSearchValue = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(event.target.value);
+  };
+
+  const onClickInvite = (id: any) => {
+    let prev: any[] = [];
+    if (invites.includes(id)) {
+      setInvites((prev = prev.filter((_id: any) => _id != id)));
+    } else {
+      setInvites((prev) => [...prev, id]);
+    }
   };
 
   return (
@@ -31,6 +40,8 @@ export const UsersSearch = () => {
         searchValue={searchValue}
         items={users}
         isLoading={isLoading}
+        invites={invites}
+        onClickInvite={onClickInvite}
       />
       {/*      <Success />*/}
     </div>
@@ -42,6 +53,8 @@ interface UsersProps {
   isLoading: boolean;
   searchValue: string;
   onChangeSearchValue: (event: ChangeEvent<HTMLInputElement>) => void;
+  invites: any;
+  onClickInvite: (id: any) => void;
 }
 
 const Users = ({
@@ -49,9 +62,9 @@ const Users = ({
   isLoading,
   onChangeSearchValue,
   searchValue,
+  invites,
+  onClickInvite,
 }: UsersProps) => {
-  console.log(searchValue);
-
   return (
     <>
       <div className="search">
@@ -82,7 +95,12 @@ const Users = ({
               );
             })
             .map((obj: any) => (
-              <User key={obj.id} {...obj} />
+              <User
+                onClickInvite={onClickInvite}
+                isInvited={invites.includes(obj.id)}
+                key={obj.id}
+                {...obj}
+              />
             ))}
         </ul>
       )}

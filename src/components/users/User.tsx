@@ -1,13 +1,24 @@
 import React from "react";
+import plusIcon from "../../assets/plus.png";
+import minusIcon from "../../assets/minus.svg";
 
 interface UserProps {
-  email: any;
-  first_name: any;
-  last_name: any;
+  email: string;
+  first_name: string;
+  last_name: string;
   avatar: "https://reqres.in/img/faces/1-image.jpg";
+  onClickInvite: () => void;
+  isInvited: boolean;
 }
 
-export const User = ({ email, first_name, last_name, avatar }: UserProps) => (
+export const User = ({
+  email,
+  first_name,
+  last_name,
+  avatar,
+  onClickInvite,
+  isInvited,
+}: UserProps) => (
   <li>
     <div>
       <img className="avatar" src={avatar} alt="User" />
@@ -23,6 +34,11 @@ export const User = ({ email, first_name, last_name, avatar }: UserProps) => (
         </p>
       </div>
     </div>
-    <img className="action" src="/assets/plus.svg" alt="Action" />
+    <img
+      onClick={onClickInvite}
+      className="action"
+      src={isInvited ? minusIcon : plusIcon}
+      alt="Action"
+    />
   </li>
 );
