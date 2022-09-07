@@ -1,4 +1,5 @@
 import React from "react";
+import success from "../../assets/success.svg";
 
 interface Props {
   count: any;
@@ -7,10 +8,15 @@ interface Props {
 export const Success = ({ count }: Props) => {
   return (
     <div className="success-block">
-      <img src="/src/assets/success.svg" alt="Success" />
+      <img src={success} alt="Success" />
       <h3>Successful!</h3>
-      <p>We have sent invitation for all {count} users sent.</p>
-      <button className="send-invite-btn">Go Back</button>
+      <p>We have sent {count} invitation</p>
+      <button
+        onClick={() => window.location.reload()}
+        className="send-invite-btn"
+      >
+        Go Back
+      </button>
     </div>
   );
 };

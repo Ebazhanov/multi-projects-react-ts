@@ -2,12 +2,14 @@ import React, { ChangeEvent, useEffect, useState } from "react";
 import { Skeleton } from "../components/users/Skeleton";
 import { User } from "../components/users/User";
 import "./Users.scss";
+import { Success } from "../components/users/Success";
 
 export const UsersSearch = () => {
   const [users, setUsers] = useState([]);
-  const [invites, setInvites] = useState([0]);
+  const [invites, setInvites] = useState([0]); //Need to be improved
   const [isLoading, setLoading] = useState(true);
   const [searchValue, setSearchValue] = useState("");
+  const [success, setSuccess] = useState(false);
 
   useEffect(() => {
     fetch("https://reqres.in/api/users")
@@ -32,17 +34,25 @@ export const UsersSearch = () => {
     }
   };
 
+  const onClickSendInvites = () => {
+    setSuccess(true);
+  };
+
   return (
     <div className="users-main">
-      <Users
-        onChangeSearchValue={onChangeSearchValue}
-        searchValue={searchValue}
-        items={users}
-        isLoading={isLoading}
-        invites={invites}
-        onClickInvite={onClickInvite}
-      />
-      {/*      <Success />*/}
+      {success ? (
+        <Success count={invites.length - 1} />
+      ) : (
+        <Users
+          onChangeSearchValue={onChangeSearchValue}
+          searchValue={searchValue}
+          items={users}
+          isLoading={isLoading}
+          invites={invites}
+          onClickInvite={onClickInvite}
+          onClickSendInvites={onClickSendInvites}
+        />
+      )}
     </div>
   );
 };
@@ -54,6 +64,7 @@ interface UsersProps {
   onChangeSearchValue: (event: ChangeEvent<HTMLInputElement>) => void;
   invites: any;
   onClickInvite: (id: any) => void;
+  onClickSendInvites: () => void;
 }
 
 const Users = ({
@@ -63,6 +74,7 @@ const Users = ({
   searchValue,
   invites,
   onClickInvite,
+  onClickSendInvites,
 }: UsersProps) => {
   return (
     <>
@@ -103,7 +115,11 @@ const Users = ({
             ))}
         </ul>
       )}
-      <button className="send-invite-btn">Send invitation</button>
+      {invites.length - 1 > 0 && (
+        <button onClick={onClickSendInvites} className="send-invite-btn">
+          Send invitation
+        </button>
+      )}
     </>
   );
 };

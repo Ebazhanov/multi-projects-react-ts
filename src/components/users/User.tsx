@@ -1,14 +1,14 @@
 import React from "react";
-import plusIcon from "../../assets/plus.png";
+import plusIcon from "../../assets/plus.svg";
 import minusIcon from "../../assets/minus.svg";
 
 interface UserProps {
-  id: any;
+  id: string;
   email: string;
   first_name: string;
   last_name: string;
   avatar: "https://reqres.in/img/faces/1-image.jpg";
-  onClickInvite: (id: any) => void;
+  onClickInvite: (id: string) => void;
   isInvited: boolean;
 }
 
