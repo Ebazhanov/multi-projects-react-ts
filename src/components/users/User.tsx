@@ -3,15 +3,17 @@ import plusIcon from "../../assets/plus.png";
 import minusIcon from "../../assets/minus.svg";
 
 interface UserProps {
+  id: any;
   email: string;
   first_name: string;
   last_name: string;
   avatar: "https://reqres.in/img/faces/1-image.jpg";
-  onClickInvite: () => void;
+  onClickInvite: (id: any) => void;
   isInvited: boolean;
 }
 
 export const User = ({
+  id,
   email,
   first_name,
   last_name,
@@ -35,7 +37,7 @@ export const User = ({
       </div>
     </div>
     <img
-      onClick={onClickInvite}
+      onClick={() => onClickInvite(id)}
       className="action"
       src={isInvited ? minusIcon : plusIcon}
       alt="Action"

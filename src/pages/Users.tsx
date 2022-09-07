@@ -5,7 +5,7 @@ import "./Users.scss";
 
 export const UsersSearch = () => {
   const [users, setUsers] = useState([]);
-  const [invites, setInvites] = useState([1, 3]);
+  const [invites, setInvites] = useState([0]);
   const [isLoading, setLoading] = useState(true);
   const [searchValue, setSearchValue] = useState("");
 
@@ -25,9 +25,8 @@ export const UsersSearch = () => {
   };
 
   const onClickInvite = (id: any) => {
-    let prev: any[] = [];
     if (invites.includes(id)) {
-      setInvites((prev = prev.filter((_id: any) => _id != id)));
+      setInvites((prev) => prev.filter((_id: any) => _id !== id));
     } else {
       setInvites((prev) => [...prev, id]);
     }
