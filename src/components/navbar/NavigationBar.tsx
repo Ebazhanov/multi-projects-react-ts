@@ -21,6 +21,9 @@ function NavigationBar() {
           <li>
             <Link to="/users">Users</Link>
           </li>
+          <li>
+            <Link to="/currency-converter">Converter</Link>
+          </li>
         </ul>
       </nav>
     </div>

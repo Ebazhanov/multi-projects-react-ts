@@ -3,11 +3,12 @@ import Counter from "./pages/Counter";
 import Home from "./pages/Home";
 import Modal from "./pages/Modal";
 import PageNotFound from "./pages/PageNotFound";
-import NavigationBar from "./components/NavigationBar";
 import { FC } from "react";
 import "./index.scss";
 import Quiz from "./pages/Quiz";
 import { UsersSearch } from "./pages/Users";
+import Converter from "./pages/Convertor";
+import NavigationBar from "./components/navbar/NavigationBar";
 
 const App: FC = () => {
   return (
@@ -20,6 +21,7 @@ const App: FC = () => {
           <Route path="/modal" element={<Modal />} />
           <Route path="/quiz" element={<Quiz />} />
           <Route path="/users" element={<UsersSearch />} />
+          <Route path="/currency-converter" element={<Converter />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
