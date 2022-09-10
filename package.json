@@ -45,6 +45,7 @@
     ]
   },
   "devDependencies": {
-    "prettier": "^2.7.1"
+    "prettier": "^2.7.1",
+    "react-icons": "^4.4.0"
   }
 }
