@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "./NavigationBar.scss";
 import { Link } from "react-router-dom";
-import { FaBars, ImCross } from "react-icons/all";
+import { FaBars } from "react-icons/fa";
+import { ImCross } from "react-icons/im";
 
 const Navbar = () => {
   const [Mobile, setMobile] = useState(false);
