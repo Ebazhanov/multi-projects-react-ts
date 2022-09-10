@@ -1,11 +1,19 @@
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 import "./NavigationBar.scss";
+import { Link } from "react-router-dom";
+import { FaBars } from "react-icons/fa";
+import { ImCross } from "react-icons/im";
 
-function NavigationBar() {
+const Navbar = () => {
+  const [Mobile, setMobile] = useState(false);
   return (
-    <div className="sidenav">
-      <nav className="main">
-        <ul className="menu-list">
+    <>
+      <nav className="navbar">
+        <h3 className="logo">Logo</h3>
+        <ul
+          className={Mobile ? "nav-links-mobile" : "nav-links"}
+          onClick={() => setMobile(false)}
+        >
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -19,15 +27,17 @@ function NavigationBar() {
             <Link to="/quiz">Quiz</Link>
           </li>
           <li>
-            <Link to="/users">Users</Link>
+            <Link to="/users">UsersSearch</Link>
           </li>
           <li>
             <Link to="/currency-converter">Converter</Link>
           </li>
         </ul>
+        <button className="mobile-menu-icon" onClick={() => setMobile(!Mobile)}>
+          {Mobile ? <ImCross /> : <FaBars />}
+        </button>
       </nav>
-    </div>
+    </>
   );
-}
-
-export default NavigationBar;
+};
+export default Navbar;

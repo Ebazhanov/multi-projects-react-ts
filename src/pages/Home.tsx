@@ -1,12 +1,13 @@
-import React, { FC } from "react";
+import React from "react";
 import "./Home.scss";
 
-const Home: FC = () => {
+const Home = () => {
   return (
-    <main className="home-main">
-      <h3>Home page</h3>
-    </main>
+    <>
+      <section className="hero">
+        <h1>Welcome to Multi project App</h1>
+      </section>
+    </>
   );
 };
-
 export default Home;

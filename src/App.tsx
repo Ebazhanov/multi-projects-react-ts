@@ -3,16 +3,15 @@ import Counter from "./pages/Counter";
 import Home from "./pages/Home";
 import Modal from "./pages/Modal";
 import PageNotFound from "./pages/PageNotFound";
-import { FC } from "react";
 import "./index.scss";
 import Quiz from "./pages/Quiz";
 import { UsersSearch } from "./pages/Users";
 import Converter from "./pages/Convertor";
 import NavigationBar from "./components/navbar/NavigationBar";
 
-const App: FC = () => {
+const App = () => {
   return (
-    <div>
+    <>
       <BrowserRouter>
         <NavigationBar />
         <Routes>
@@ -25,7 +24,7 @@ const App: FC = () => {
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
-    </div>
+    </>
   );
 };
 

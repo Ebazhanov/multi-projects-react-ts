@@ -62,7 +62,7 @@ function QuizCard({ step, question, onClickVariant }: Props) {
   const percentage = Math.round((step / questions.length) * 100) + 100;
 
   return (
-    <>
+    <div>
       <div className="progress">
         <div style={{ width: percentage }} className="progress__inner"></div>
       </div>
@@ -74,7 +74,7 @@ function QuizCard({ step, question, onClickVariant }: Props) {
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 }
 
@@ -92,16 +92,18 @@ function Quiz() {
   };
 
   return (
-    <div className="Quiz">
-      {step !== questions.length ? (
-        <QuizCard
-          step={step}
-          question={question}
-          onClickVariant={onClickVariant}
-        />
-      ) : (
-        <Result correct={correct} />
-      )}
+    <div className="quiz-card">
+      <div className="Quiz">
+        {step !== questions.length ? (
+          <QuizCard
+            step={step}
+            question={question}
+            onClickVariant={onClickVariant}
+          />
+        ) : (
+          <Result correct={correct} />
+        )}
+      </div>
     </div>
   );
 }
