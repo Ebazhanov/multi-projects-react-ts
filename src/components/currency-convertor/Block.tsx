@@ -1,6 +1,6 @@
 import React from "react";
 
-const defaultCurrencies = ["RUB", "USD", "EUR", "GBP"];
+const defaultCurrencies = ["EUR", "USD", "RUB", "CNY"];
 
 interface BlockProps {
   value: number;

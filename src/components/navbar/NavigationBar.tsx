@@ -15,22 +15,22 @@ const Navbar = () => {
           onClick={() => setMobile(false)}
         >
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/">🏠 Home</Link>
           </li>
           <li>
-            <Link to="/counter">Counter</Link>
+            <Link to="/counter">🦊 Counter</Link>
           </li>
           <li>
-            <Link to="/modal">Modal</Link>
+            <Link to="/modal">💪 Modal</Link>
           </li>
           <li>
-            <Link to="/quiz">Quiz</Link>
+            <Link to="/quiz">🤔 Quiz</Link>
           </li>
           <li>
-            <Link to="/users">UsersSearch</Link>
+            <Link to="/users">✍🏼 UsersSearch</Link>
           </li>
           <li>
-            <Link to="/currency-converter">Converter</Link>
+            <Link to="/currency-converter">💰 Converter</Link>
           </li>
         </ul>
         <button className="mobile-menu-icon" onClick={() => setMobile(!mobile)}>
