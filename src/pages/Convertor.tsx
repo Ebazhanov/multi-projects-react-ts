@@ -5,6 +5,8 @@ import "./../components/currency-convertor/index.scss";
 function Converter() {
   const [fromCurrency, setFromCurrency] = useState("EUR");
   const [toCurrency, setToCurrency] = useState("USD");
+  const [fromPrice, setFromPrice] = useState(0);
+  const [toPrice, setToPrice] = useState(0);
   const [rates, setRates] = useState({});
 
   useEffect(() => {
@@ -20,14 +22,28 @@ function Converter() {
       });
   }, []);
 
+  const onChangeFromPrice = (value: any) => {
+    setFromPrice(value);
+  };
+
+  const onChangeToPrice = (value: any) => {
+    setToPrice(value);
+  };
+
   return (
     <div className="converter">
       <Block
-        value={0}
+        value={fromPrice}
         currency={fromCurrency}
         onChangeCurrency={setFromCurrency}
+        onChangeValue={onChangeFromPrice}
       />
-      <Block value={0} currency={toCurrency} onChangeCurrency={setToCurrency} />
+      <Block
+        value={toPrice}
+        currency={toCurrency}
+        onChangeCurrency={setToCurrency}
+        onChangeValue={onChangeToPrice}
+      />
     </div>
   );
 }

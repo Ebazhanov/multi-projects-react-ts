@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from "react";
+import React from "react";
 
 const defaultCurrencies = ["RUB", "USD", "EUR", "GBP"];
 
@@ -6,7 +6,7 @@ interface BlockProps {
   value: number;
   currency: string;
   onChangeCurrency?: (cur: any) => void;
-  onChangeValue?: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChangeValue?: (event: string) => void;
 }
 
 export const Block = ({
@@ -37,10 +37,12 @@ export const Block = ({
         </li>
       </ul>
       <input
-        //onChange={(e) => onChangeValue(e.target.value)}
+        onChange={(e) =>
+          onChangeValue ? onChangeValue(e.target.value) : undefined
+        }
         value={value}
         type="number"
-        //placeholder={0}
+        placeholder="0"
       />
     </div>
   );
