@@ -8,6 +8,7 @@ import Quiz from "./pages/Quiz";
 import { UsersSearch } from "./pages/Users";
 import Converter from "./pages/Convertor";
 import NavigationBar from "./components/navbar/NavigationBar";
+import Photos from "./pages/Photos";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
           <Route path="/quiz" element={<Quiz />} />
           <Route path="/users" element={<UsersSearch />} />
           <Route path="/currency-converter" element={<Converter />} />
+          <Route path="/photos" element={<Photos />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
