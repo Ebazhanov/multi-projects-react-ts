@@ -1,32 +1,28 @@
-import React from "react";
+import Collection from "../components/photo/Collection";
 import "./Photos.scss";
-
-interface CollectionProps {
-  name: string;
-  images: any;
-}
-
-function Collection({ name, images }: CollectionProps) {
-  return (
-    <div className="collection">
-      <img className="collection__big" src={images[0]} alt="Item" />
-      <div className="collection__bottom">
-        <img className="collection__mini" src={images[1]} alt="Item" />
-        <img className="collection__mini" src={images[2]} alt="Item" />
-        <img className="collection__mini" src={images[3]} alt="Item" />
-      </div>
-      <h4>{name}</h4>
-    </div>
-  );
-}
+import { useEffect, useState } from "react";
 
 function Photos() {
+  const [collections, setCollections] = useState([]);
+
+  useEffect(() => {
+    fetch("https://631f9d7058a1c0fe9f6cc4ee.mockapi.io/photo-collection")
+      .then((res) => res.json())
+      .then((json) => {
+        setCollections(json);
+      })
+      .catch((err) => {
+        console.warn(err);
+        alert("Failed fetch info");
+      });
+  }, []);
+
   return (
     <div className="photos-app">
       <h1>Collection of my photos</h1>
       <div className="top">
         <ul className="tags">
-          <li className="active">All</li>
+          <li className="active">All categories</li>
           <li>Mountains</li>
           <li>Sea</li>
           <li>Architecture</li>
