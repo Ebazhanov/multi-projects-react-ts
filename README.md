@@ -1,4 +1,4 @@
-### Multi projects App (still inPROGRESS !!!)
+### Multi projects App
 
 ---
 
