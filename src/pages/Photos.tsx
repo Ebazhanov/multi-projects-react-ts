@@ -24,10 +24,9 @@ function Photos() {
 
   useEffect(() => {
     setIsLoading(true);
+    const selectedCategory = categoryId ? `category=${categoryId}` : "";
     fetch(
-      `https://6322c16ca624bced307dea7f.mockapi.io/photos-collection?${
-        categoryId ? `category=${categoryId}` : ""
-      }`
+      `https://6322c16ca624bced307dea7f.mockapi.io/photos-collection?page=${page}&limit=3&${selectedCategory}`
     )
       .then((res) => res.json())
       .then((json) => {
@@ -38,7 +37,7 @@ function Photos() {
         alert("Failed fetch info");
       })
       .finally(() => setIsLoading(false));
-  }, [categoryId]);
+  }, [categoryId, page]);
 
   const onChangeSearchValue = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchValue(event.currentTarget.value);
@@ -49,7 +48,7 @@ function Photos() {
   };
 
   const onClickSetActivePage = (index: number) => {
-    setPage(index);
+    setPage(index + 1);
   };
 
   return (
@@ -87,10 +86,10 @@ function Photos() {
         )}
       </div>
       <ul className="pagination">
-        {[...Array(5)].map((_, index) => (
+        {[...Array(3)].map((_, index) => (
           <li
             onClick={() => onClickSetActivePage(index)}
-            className={page === index ? "active" : ""}
+            className={page === index + 1 ? "active" : ""}
           >
             {index + 1}
           </li>
