@@ -32,6 +32,9 @@ const Navbar = () => {
           <li>
             <Link to="/currency-converter">💰 Converter</Link>
           </li>
+          <li>
+            <Link to="/photos">🏖 Photos</Link>
+          </li>
         </ul>
         <button className="mobile-menu-icon" onClick={() => setMobile(!mobile)}>
           {mobile ? <ImCross /> : <FaBars />}
