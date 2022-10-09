@@ -1,8 +1,8 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
-import { Skeleton } from "../components/users/Skeleton";
-import { User } from "../components/users/User";
+import { Skeleton } from "../../components/users/Skeleton";
+import { User } from "../../components/users/User";
 import "./Users.scss";
-import { Success } from "../components/users/Success";
+import { Success } from "../../components/users/Success";
 
 export const UsersSearch = () => {
   const [users, setUsers] = useState([]);

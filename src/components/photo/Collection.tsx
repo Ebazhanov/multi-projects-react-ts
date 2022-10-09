@@ -1,5 +1,5 @@
 import React from "react";
-import "../../pages/Photos.scss";
+import "../../pages/Photos/Photos.scss";
 
 interface CollectionProps {
   name: string;

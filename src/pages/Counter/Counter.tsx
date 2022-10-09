@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Counter.scss";
+import "../Convertor/Counter.scss";
 
 function Counter() {
   const [count, setCount] = useState(0);

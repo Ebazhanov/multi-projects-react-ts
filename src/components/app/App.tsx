@@ -1,14 +1,14 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Counter from "./pages/Counter";
-import Home from "./pages/Home";
-import Modal from "./pages/Modal";
-import PageNotFound from "./pages/PageNotFound";
-import "./index.scss";
-import Quiz from "./pages/Quiz";
-import { UsersSearch } from "./pages/Users";
-import Converter from "./pages/Convertor";
-import NavigationBar from "./components/navbar/NavigationBar";
-import Photos from "./pages/Photos";
+import Counter from "../../pages/Counter/Counter";
+import Home from "../../pages/Home/Home";
+import Modal from "../../pages/Modal/Modal";
+import PageNotFound from "../../pages/PageNotFound/PageNotFound";
+import "../../index.scss";
+import Quiz from "../../pages/Quiz/Quiz";
+import { UsersSearch } from "../../pages/Users/Users";
+import Converter from "../../pages/Convertor/Convertor";
+import NavigationBar from "../navbar/NavigationBar";
+import Photos from "../../pages/Photos/Photos";
 
 const App = () => {
   return (

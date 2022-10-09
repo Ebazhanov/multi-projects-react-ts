@@ -1,4 +1,4 @@
-import Collection from "../components/photo/Collection";
+import Collection from "../../components/photo/Collection";
 import "./Photos.scss";
 import { ChangeEvent, useEffect, useState } from "react";
 
