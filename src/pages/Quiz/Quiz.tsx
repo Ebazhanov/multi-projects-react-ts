@@ -41,7 +41,7 @@ function Result({ correct }: ResultProps) {
       <h2>
         You passed {correct} answers from {questions.length}
       </h2>
-      <a href="/Quiz/Quiz">
+      <a href="/quiz">
         <button>Try again</button>
       </a>
     </div>
